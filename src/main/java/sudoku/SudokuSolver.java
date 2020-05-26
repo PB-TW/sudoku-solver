@@ -9,7 +9,7 @@ public class SudokuSolver {
     }
 
     public void solve() {
-
+        print();
     }
 
     public boolean possible(int x, int y, int input) {
@@ -17,6 +17,6 @@ public class SudokuSolver {
     }
 
     public void print() {
-
+        System.out.println("I found a solution!");
     }
 }
