@@ -48,7 +48,10 @@ public class Main {
     };
 
     public static void main(String[] args) {
-        new SudokuSolver(grid).print();
-        new SudokuSolver(grid).solve();
+        SudokuSolver solver = new SudokuSolver(grid);
+        System.out.println(solver.gridToString());
+        solver.solve();
+        System.out.println("-------------\n");
+        System.out.println(solver.gridToString());
     }
 }

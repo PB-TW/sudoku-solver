@@ -5,6 +5,7 @@ import static java.util.stream.IntStream.range;
 public class SudokuSolver {
 
     private final int[][] grid;
+    private boolean solutionFound = false;
 
     public SudokuSolver(int[][] grid) {
         this.grid = grid;
@@ -18,14 +19,16 @@ public class SudokuSolver {
                         if (possible(x, y, input)) {
                             grid[x][y] = input;
                             solve();
-                            grid[x][y] = 0;
+                            if (!solutionFound) {
+                                grid[x][y] = 0;
+                            }
                         }
                     }
                     return;
                 }
             }
         }
-        print();
+        solutionFound = true;
     }
 
     public boolean possible(int x, int y, int input) {
@@ -52,18 +55,22 @@ public class SudokuSolver {
                 );
     }
 
-    public void print() {
+    public String gridToString() {
+        StringBuilder result = new StringBuilder();
+
         for (int x = 0; x < 9; x++) {
             for (int y = 0; y < 9; y++) {
-                System.out.print(grid[x][y] + " ");
-                if (y%3 == 2) {
-                    System.out.print("  ");
+                result.append(grid[x][y]);
+                if (y == 2 || y == 5) {
+                    result.append("  ");
                 }
             }
-            System.out.print("\n");
-            if (x%3 == 2) {
-                System.out.print("\n");
+            result.append("\n");
+            if (x == 2 || x == 5) {
+                result.append("\n");
             }
         }
+
+        return result.toString();
     }
 }

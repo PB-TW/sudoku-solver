@@ -9,14 +9,14 @@ public class SudokuSolver {
     }
 
     public void solve() {
-        print();
+        return;
     }
 
     public boolean possible(int x, int y, int input) {
         return false;
     }
 
-    public void print() {
-        System.out.println("I found a solution!");
+    public String gridToString() {
+        return "I found a solution!";
     }
 }
